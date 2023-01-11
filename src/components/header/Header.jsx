@@ -13,10 +13,12 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
 
   const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
   const [openDate, setOpenDate] = useState(false);
   const [destination, setDestination] = useState("")
   const [dates, setDates] = useState([
@@ -81,7 +83,7 @@ const Header = ({ type }) => {
               Get rewared for your travels - unlock instant saving of 10% or
               more with a free Y-Books account
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+            {!user && <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FaBed className="headerIcon" />
