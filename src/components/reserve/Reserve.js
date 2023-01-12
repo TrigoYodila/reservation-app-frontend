@@ -48,7 +48,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         : selectedRooms.filter((item) => item !== value)
     );
   };
-  console.log("rooms ", selectedRooms)
+ 
   const handleClick = async () => {
     try {
       await Promise.all(
